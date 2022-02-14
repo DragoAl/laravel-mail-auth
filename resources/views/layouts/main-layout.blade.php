@@ -6,10 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{asset('/css/app.css')}}">
     <script src="{{asset('/js/app.js')}}"></script>
-    
+
     <title>Videogames</title>
 </head>
 <body>
+    <div id="app">
+        @include('components.header')
+        @yield('content')
+        @include('components.footer')
+
+    </div>
+    
+
     
 </body>
 </html>
