@@ -21,4 +21,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'GuestController@home')->name('home');
 
+Route::get('/login', 'Auth\LoginController@showLogin') ->name('show.login');
+Route::post('/login', 'Auth\LoginController@login') ->name('login');
+
+Route::get('/register', 'Auth\RegisterController@showRegister') -> name('show.register');
+Route::post('/register', 'Auth\RegisterController@register') -> name('register');
+
+Route::get('/logout', 'Auth\LoginController@logout') -> name('logout');
+
+
 Route::get('/api/videogames/list', 'ApiController@getVideogames') -> name('api.videogames.list');
