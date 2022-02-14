@@ -1954,11 +1954,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       videogames: []
     };
+  },
+  props: {
+    user: String
   },
   mounted: function mounted() {
     var _this = this;
@@ -6352,7 +6357,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#container[data-v-634afedc] {\n  width: 60%;\n  margin: 0 auto;\n}\n.videogame-cont[data-v-634afedc] {\n  margin: 15px auto;\n  border: 2px solid black;\n  text-align: center;\n}", ""]);
+exports.push([module.i, "#container[data-v-634afedc] {\n  width: 60%;\n  margin: 0 auto;\n}\n.videogame-cont[data-v-634afedc] {\n  position: relative;\n  margin: 15px auto;\n  border: 2px solid black;\n  text-align: center;\n}\n.videogame-cont .trash[data-v-634afedc] {\n  position: absolute;\n  top: 0;\n  right: 10px;\n}", ""]);
 
 // exports
 
@@ -38260,6 +38265,12 @@ var render = function () {
       _vm._l(_vm.videogames, function (videogame) {
         return _c("div", { key: videogame.id, staticClass: "videogame-cont" }, [
           _c("h3", [_vm._v(_vm._s(videogame.title))]),
+          _vm._v(" "),
+          _vm.user
+            ? _c("div", { staticClass: "trash" }, [
+                _c("i", { staticClass: "fas fa-trash" }),
+              ])
+            : _vm._e(),
           _vm._v(" "),
           _c("span", [_vm._v(_vm._s(videogame.subtitle))]),
           _vm._v(" "),
