@@ -1965,6 +1965,23 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     user: String
   },
+  methods: {
+    deleteVideogame: function deleteVideogame(id) {
+      var self = this;
+      axios.get("/api/videogame/delete/".concat(id)).then(function (res) {
+        var index = self.getIndexById(id);
+        self.videogames.splice(index, 1);
+      })["catch"](function (err) {
+        return console.error(err);
+      });
+    },
+    getIndexById: function getIndexById(id) {
+      for (var x = 0; x < this.videogames.length; x++) {
+        var videogame = this.videogames[x];
+        if (videogame.id == id) return x;
+      }
+    }
+  },
   mounted: function mounted() {
     var _this = this;
 
@@ -38268,7 +38285,14 @@ var render = function () {
           _vm._v(" "),
           _vm.user
             ? _c("div", { staticClass: "trash" }, [
-                _c("i", { staticClass: "fas fa-trash" }),
+                _c("i", {
+                  staticClass: "fas fa-trash",
+                  on: {
+                    click: function ($event) {
+                      return _vm.deleteVideogame(videogame.id)
+                    },
+                  },
+                }),
               ])
             : _vm._e(),
           _vm._v(" "),

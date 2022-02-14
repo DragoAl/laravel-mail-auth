@@ -31,3 +31,4 @@ Route::get('/logout', 'Auth\LoginController@logout') -> name('logout');
 
 
 Route::get('/api/videogames/list', 'ApiController@getVideogames') -> name('api.videogames.list');
+Route::get('/api/videogame/delete/{id}', 'ApiController@deleteVideogame') -> name('api.videogame.delete');
